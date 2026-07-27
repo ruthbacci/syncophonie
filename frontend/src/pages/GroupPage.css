@@ -1,0 +1,173 @@
+.group-page {}
+
+.player-legend {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  padding: 12px 16px;
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.legend-player {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.gs-cal-wrap {
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 20px;
+}
+
+.cal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.cal-nav {
+  background: none;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  width: 32px;
+  height: 32px;
+  font-size: 1.1rem;
+  color: var(--color-muted);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.cal-nav:hover {
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.cal-month-label {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.gs-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+
+.cal-day-name {
+  text-align: center;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--color-muted);
+  padding: 4px 0 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.gs-cell {
+  border-radius: 8px;
+  padding: 4px;
+  background: var(--color-bg);
+  min-height: 72px;
+}
+
+.gs-cell.empty {
+  background: transparent;
+}
+
+.gs-cell.today {
+  outline: 2px solid var(--color-primary);
+  outline-offset: -2px;
+}
+
+.gs-date-row {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin-bottom: 2px;
+}
+
+.cal-date-num {
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--color-muted);
+}
+
+.all-free-badge {
+  font-size: 0.58rem;
+  font-weight: 700;
+  background: #fef9c3;
+  color: #b45309;
+  border-radius: 3px;
+  padding: 1px 3px;
+}
+
+.gs-periods {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.gs-slot {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.gs-period-label {
+  font-size: 0.58rem;
+  font-weight: 700;
+  color: var(--color-muted);
+  width: 14px;
+  flex-shrink: 0;
+  letter-spacing: 0.05em;
+}
+
+.gs-dots {
+  display: flex;
+  gap: 2px;
+  flex-wrap: wrap;
+}
+
+.player-dot {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+
+.player-dot.available {
+  /* colour set via inline style */
+}
+
+.player-dot.absent {
+  background: #fca5a5;
+}
+
+.player-dot.unset {
+  background: var(--color-border);
+}
+
+.gs-legend-foot {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+  font-size: 0.78rem;
+  color: var(--color-muted);
+  align-items: center;
+}
+
+.gs-legend-foot .legend-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
