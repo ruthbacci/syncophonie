@@ -12,7 +12,7 @@ import {
 import api from '../api/client'
 import './GroupPage.css'
 
-const DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+const DAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
 
 // Distinct colours for up to 4 players
 const PLAYER_COLOURS = ['#6366f1', '#f59e0b', '#10b981', '#ef4444']
@@ -80,7 +80,7 @@ export default function GroupPage() {
   const start = startOfMonth(month)
   const end = endOfMonth(month)
   const days = eachDayOfInterval({ start, end })
-  const startPad = getDay(start)
+  const startPad = (getDay(start) + 6) % 7 // Mon=0 ... Sun=6
 
   function getSlotForDay(userId, period, date) {
     const key = `${userId}:${period}:${date}`

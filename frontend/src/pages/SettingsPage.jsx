@@ -8,6 +8,10 @@ export default function SettingsPage() {
   const [displayName, setDisplayName] = useState(user?.displayName || '')
   const [nameMsg, setNameMsg] = useState('')
 
+  const [newUsername, setNewUsername] = useState(user?.username || '')
+  const [usernameMsg, setUsernameMsg] = useState('')
+  const [usernameError, setUsernameError] = useState('')
+
   const [currentPw, setCurrentPw] = useState('')
   const [newPw, setNewPw] = useState('')
   const [confirmPw, setConfirmPw] = useState('')
@@ -23,6 +27,19 @@ export default function SettingsPage() {
       setNameMsg('Display name updated!')
     } catch (err) {
       setNameMsg(err.response?.data?.error || 'Error saving name')
+    }
+  }
+
+  async function handleUsernameSave(e) {
+    e.preventDefault()
+    setUsernameMsg('')
+    setUsernameError('')
+    try {
+      const { data } = await api.put('/auth/username', { username: newUsername })
+      updateUser(data.user, data.token)
+      setUsernameMsg('Username updated! Use your new username to log in next time.')
+    } catch (err) {
+      setUsernameError(err.response?.data?.error || 'Error updating username')
     }
   }
 
@@ -65,6 +82,31 @@ export default function SettingsPage() {
           </div>
           <button type="submit" className="btn-primary small">Save Name</button>
           {nameMsg && <p className="settings-msg">{nameMsg}</p>}
+        </form>
+      </div>
+
+      <div className="settings-card">
+        <h3 className="settings-section-title">Change Username</h3>
+        <p className="settings-desc">
+          Your current username is <strong>{user?.username}</strong>. Usernames may only contain
+          letters, numbers and underscores, and must be at least 3 characters.
+        </p>
+        <form onSubmit={handleUsernameSave} className="settings-form">
+          <div className="field">
+            <label htmlFor="newUsername">New Username</label>
+            <input
+              id="newUsername"
+              type="text"
+              value={newUsername}
+              onChange={e => setNewUsername(e.target.value)}
+              required
+              minLength={3}
+              autoComplete="username"
+            />
+          </div>
+          {usernameError && <p className="settings-error">{usernameError}</p>}
+          <button type="submit" className="btn-primary small">Save Username</button>
+          {usernameMsg && <p className="settings-msg">{usernameMsg}</p>}
         </form>
       </div>
 

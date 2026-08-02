@@ -11,7 +11,7 @@ import {
 } from 'date-fns'
 import './AvailabilityCalendar.css'
 
-const DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+const DAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
 
 /**
  * slots: Map of "YYYY-MM-DD:morning" | "YYYY-MM-DD:afternoon" -> boolean | undefined
@@ -22,7 +22,7 @@ export default function AvailabilityCalendar({ month, onMonthChange, slots = {},
   const start = startOfMonth(month)
   const end = endOfMonth(month)
   const days = eachDayOfInterval({ start, end })
-  const startPad = getDay(start) // 0=Sun
+  const startPad = (getDay(start) + 6) % 7 // Mon=0 ... Sun=6
 
   function getStatus(date, period) {
     const key = `${format(date, 'yyyy-MM-dd')}:${period}`
