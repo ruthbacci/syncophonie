@@ -32,7 +32,7 @@ export default function LoginPage() {
       <div className="login-card">
         <div className="login-brand">
           <span className="login-logo">🎷</span>
-          <h1 className="login-title">Syncophonie</h1>
+          <h1 className="login-title">Saxophonie Syncophonie</h1>
           <p className="login-subtitle">Quartet Scheduler</p>
         </div>
 

@@ -16,7 +16,7 @@ export default function Layout() {
       <header className="header">
         <div className="header-brand">
           <span className="header-logo">🎷</span>
-          <span className="header-title">Syncophonie</span>
+          <span className="header-title">Saxophonie Syncophonie</span>
         </div>
         <nav className="header-nav">
           <NavLink to="/calendar" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
