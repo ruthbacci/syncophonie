@@ -5,6 +5,7 @@ const { initDb } = require('./db');
 const { seedPlayers } = require('./db/seed');
 
 const authRoutes = require('./routes/auth');
+const usernameRoutes = require('./routes/username');
 const usersRoutes = require('./routes/users');
 const availabilityRoutes = require('./routes/availability');
 
@@ -18,6 +19,7 @@ app.use(cors({
 app.use(express.json());
 
 app.use('/api/auth', authRoutes);
+app.use('/api/auth', usernameRoutes);
 app.use('/api/users', usersRoutes);
 app.use('/api/availability', availabilityRoutes);
 
