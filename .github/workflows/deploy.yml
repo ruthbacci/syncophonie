@@ -33,14 +33,14 @@ jobs:
 
       - name: Build and push backend image
         run: |
-          docker build -t $REGISTRY/syncophonie-backend:${{ github.sha }} ./backend
+          docker build --no-cache -t $REGISTRY/syncophonie-backend:${{ github.sha }} ./backend
           docker push $REGISTRY/syncophonie-backend:${{ github.sha }}
           docker tag $REGISTRY/syncophonie-backend:${{ github.sha }} $REGISTRY/syncophonie-backend:latest
           docker push $REGISTRY/syncophonie-backend:latest
 
       - name: Build and push frontend image
         run: |
-          docker build -t $REGISTRY/syncophonie-frontend:${{ github.sha }} ./frontend
+          docker build --no-cache -t $REGISTRY/syncophonie-frontend:${{ github.sha }} ./frontend
           docker push $REGISTRY/syncophonie-frontend:${{ github.sha }}
           docker tag $REGISTRY/syncophonie-frontend:${{ github.sha }} $REGISTRY/syncophonie-frontend:latest
           docker push $REGISTRY/syncophonie-frontend:latest
